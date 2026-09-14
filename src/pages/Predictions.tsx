@@ -2,7 +2,8 @@ import type { SimState } from '@/types';
 import ThreatForecast from '@/components/ThreatForecast';
 import AttackProgression from '@/components/AttackProgression';
 import Panel from '@/components/Panel';
-import { Brain, GitBranch, TrendingUp, Target } from 'lucide-react';
+import DataStatusBadge from '@/components/DataStatusBadge';
+import { Brain, GitBranch, TrendingUp, Target, Info } from 'lucide-react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine,
   BarChart, Bar, Cell,
@@ -34,6 +35,13 @@ const PROBABILITY_TREND = [
 export default function Predictions({ state }: PredictionsProps) {
   return (
     <div className="space-y-4 animate-fade-in">
+      <div className="flex items-center gap-2 px-1">
+        <DataStatusBadge status="demo" size="sm" />
+        <p className="text-[10px] text-slate-500 leading-relaxed">
+          All prediction and probability values on this page are simulated for demonstration — no trained model is connected.
+        </p>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <ThreatForecast forecast={state.forecast} />
 
@@ -56,7 +64,11 @@ export default function Predictions({ state }: PredictionsProps) {
         </Panel>
       </div>
 
-      <Panel title="Stage Progression Probability Over Time" icon={<TrendingUp className="w-4 h-4" />}>
+      <Panel title="Illustrative Stage Progression Probability Over Time" icon={<TrendingUp className="w-4 h-4" />}>
+        <div className="flex items-center gap-2 mb-3">
+          <DataStatusBadge status="demo" />
+          <span className="text-[10px] text-slate-500">Hard-coded illustrative trend — not model output.</span>
+        </div>
         <div style={{ height: 280 }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={PROBABILITY_TREND} margin={{ left: -10, right: 10, top: 10 }}>
@@ -74,7 +86,11 @@ export default function Predictions({ state }: PredictionsProps) {
       </Panel>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <Panel title="Forecast Confidence by Stage" icon={<Target className="w-4 h-4" />}>
+        <Panel title="Illustrative Forecast Confidence by Stage" icon={<Target className="w-4 h-4" />}>
+          <div className="flex items-center gap-2 mb-3">
+            <DataStatusBadge status="demo" />
+            <span className="text-[10px] text-slate-500">Hard-coded confidence values — not model output.</span>
+          </div>
           <div style={{ height: 260 }}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={FORECAST_CONFIDENCE} margin={{ left: -10, right: 10 }}>
@@ -98,6 +114,7 @@ export default function Predictions({ state }: PredictionsProps) {
             <div className="bg-soc-panel/40 rounded-lg p-3 border border-soc-border/50">
               <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Model Type</p>
               <p className="text-sm text-slate-200">Sequence-based Threat Progression Predictor</p>
+              <p className="text-[10px] text-amber-400/70 mt-1">Planned architecture — no model is trained or deployed in this prototype.</p>
             </div>
             <div className="bg-soc-panel/40 rounded-lg p-3 border border-soc-border/50">
               <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Input Features</p>

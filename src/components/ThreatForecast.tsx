@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { SimState } from '@/types';
 import { riskLevelColor } from '@/simulation';
+import DataStatusBadge from '@/components/DataStatusBadge';
 import { Brain, ArrowDown, ChevronDown, Activity, Network, Repeat, AlertCircle } from 'lucide-react';
 
 interface ThreatForecastProps {
@@ -37,8 +38,8 @@ export default function ThreatForecast({ forecast }: ThreatForecastProps) {
           <Brain className="relative w-5 h-5 text-cyan" />
         </div>
         <h3 className="text-sm font-bold text-cyan tracking-wider glow-text-cyan">AI THREAT FORECAST</h3>
-        <span className="ml-auto text-[9px] font-mono text-slate-500 px-2 py-0.5 rounded border border-soc-border">
-          PREDICTION ENGINE
+        <span className="ml-auto">
+          <DataStatusBadge status="demo" />
         </span>
       </div>
 
@@ -210,7 +211,7 @@ export default function ThreatForecast({ forecast }: ThreatForecastProps) {
       {/* Footer */}
       <div className="mt-4 flex items-center gap-2 text-[9px] text-slate-500">
         <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse" />
-        <span className="font-mono">Model output is probabilistic — not a certainty determination</span>
+        <span className="font-mono">Simulated forecast — no trained model is connected. Output is probabilistic, not a certainty determination.</span>
       </div>
     </div>
   );

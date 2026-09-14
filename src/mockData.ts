@@ -1,4 +1,16 @@
 import type { ThreatEvent, RiskDistribution, CategoryData } from './types';
+import type { DataStatus } from '@/components/DataStatusBadge';
+
+export const DATA_STATUS: Record<string, DataStatus> = {
+  THREAT_EVENTS: 'demo',
+  ATTACK_CATEGORIES: 'demo',
+  RISK_DISTRIBUTION: 'demo',
+  MITRE_STAGE_DISTRIBUTION: 'demo',
+  CONFUSION_MATRIX: 'demo',
+  DETECTION_PERFORMANCE: 'demo',
+  FORECAST_CONFIDENCE: 'demo',
+  NETWORK_TRAFFIC_HISTORY: 'demo',
+};
 
 export const THREAT_EVENTS: ThreatEvent[] = [
   { id: 'te-1', timestamp: '20:31:14', category: 'Reconnaissance', severity: 'HIGH', source: '10.0.0.15', target: 'Web Server', mitreStage: 'Reconnaissance', status: 'active' },

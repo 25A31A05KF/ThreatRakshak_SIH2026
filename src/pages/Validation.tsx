@@ -1,4 +1,5 @@
 import Panel from '@/components/Panel';
+import DataStatusBadge from '@/components/DataStatusBadge';
 import { CheckCircle2, BarChart3, Grid3x3, TrendingUp, Info } from 'lucide-react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -28,8 +29,11 @@ export default function Validation() {
       <div className="glass-card p-5 border-l-2 border-l-amber-500/50">
         <div className="flex items-start gap-3">
           <Info className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-          <div>
-            <h2 className="text-lg font-bold text-amber-400 tracking-wide">PROTOTYPE VALIDATION</h2>
+          <div className="flex-1">
+            <div className="flex items-center gap-3 flex-wrap">
+              <h2 className="text-lg font-bold text-amber-400 tracking-wide">PROTOTYPE VALIDATION</h2>
+              <DataStatusBadge status="demo" size="sm" />
+            </div>
             <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
               Illustrative evaluation interface — final metrics will be generated after training and testing on real network datasets.
             </p>
@@ -57,6 +61,10 @@ export default function Validation() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <Panel title="Illustrative Detection Performance" icon={<TrendingUp className="w-4 h-4" />}>
+          <div className="flex items-center gap-2 mb-3">
+            <DataStatusBadge status="demo" />
+            <span className="text-[10px] text-slate-500">Hard-coded illustrative values — not measured model performance.</span>
+          </div>
           <div style={{ height: 280 }}>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={DETECTION_PERFORMANCE} margin={{ left: -10, right: 10, top: 10 }}>
@@ -73,6 +81,10 @@ export default function Validation() {
         </Panel>
 
         <Panel title="Illustrative Forecast Confidence" icon={<BarChart3 className="w-4 h-4" />}>
+          <div className="flex items-center gap-2 mb-3">
+            <DataStatusBadge status="demo" />
+            <span className="text-[10px] text-slate-500">Hard-coded confidence values — not model output.</span>
+          </div>
           <div style={{ height: 280 }}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={FORECAST_CONFIDENCE} margin={{ left: -10, right: 10 }}>
@@ -100,8 +112,8 @@ export default function Validation() {
       </div>
 
       <Panel title="Illustrative Confusion Matrix" icon={<Grid3x3 className="w-4 h-4" />}>
-        <div className="flex items-start gap-2.5 mb-4">
-          <Info className="w-3.5 h-3.5 text-amber-500/70 flex-shrink-0 mt-0.5" />
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
+          <DataStatusBadge status="demo" />
           <p className="text-[11px] text-slate-400 leading-relaxed">
             Example evaluation visualization — values shown for prototype demonstration only.
           </p>

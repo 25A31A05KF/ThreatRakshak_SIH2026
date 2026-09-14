@@ -1,15 +1,13 @@
 import type { SimState } from '@/types';
-import { riskLevelColor } from '@/simulation';
-import { Activity, ShieldAlert, Brain, Wifi, Server } from 'lucide-react';
+import { Activity, ShieldAlert, Brain, Wifi } from 'lucide-react';
+import DataStatusBadge from '@/components/DataStatusBadge';
 
 interface StatCardProps {
   state: SimState;
 }
 
 export default function StatCards({ state }: StatCardProps) {
-  const riskColor = riskLevelColor(state.riskLevel);
-
-  const cards = [
+  const cards: { label: string; value: string; sub: string; icon: React.ReactNode; color: string; glow: string; badge?: boolean }[] = [
     {
       label: 'System Status',
       value: 'ONLINE',
@@ -29,10 +27,11 @@ export default function StatCards({ state }: StatCardProps) {
     {
       label: 'Predicted Threats',
       value: String(state.predictedThreats),
-      sub: 'Forecasted by AI',
+      sub: 'Simulated forecast',
       icon: <Brain className="w-5 h-5" />,
       color: '#22d3ee',
       glow: 'rgba(34,211,238,0.3)',
+      badge: true,
     },
     {
       label: 'Network Health',
@@ -57,7 +56,10 @@ export default function StatCards({ state }: StatCardProps) {
           />
           <div className="flex items-start justify-between mb-2">
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">{card.label}</span>
-            <span style={{ color: card.color }}>{card.icon}</span>
+            <div className="flex items-center gap-1.5">
+              {card.badge && <DataStatusBadge status="demo" showLabel={false} />}
+              <span style={{ color: card.color }}>{card.icon}</span>
+            </div>
           </div>
           <div
             className="text-2xl font-bold tabular-nums"

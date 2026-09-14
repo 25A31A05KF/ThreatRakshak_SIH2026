@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import {
   X,
-  Database,
   Cpu,
-  Radio,
   BrainCircuit,
-  ClipboardCheck,
   GraduationCap,
   Network,
   ArrowDown,
   Info,
-  Check,
   FileSearch,
   ListChecks,
   HardDrive,

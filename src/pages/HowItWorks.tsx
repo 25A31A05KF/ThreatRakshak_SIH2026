@@ -17,6 +17,7 @@ import {
   Layers,
 } from 'lucide-react';
 import Panel from '@/components/Panel';
+import DataStatusBadge from '@/components/DataStatusBadge';
 
 const FLOW_STAGES = [
   { name: 'Network Telemetry', icon: Network, description: 'Raw packet and flow data is collected from network sensors in real time.' },
@@ -42,7 +43,8 @@ export default function HowItWorks() {
   return (
     <div className="space-y-4 animate-fade-in">
       <Panel title="How It Works — Implementation Flow" icon={<Layers className="w-4 h-4" />}>
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
+          <DataStatusBadge status="pending" size="sm" />
           <span className="text-[10px] font-mono text-amber-400/80 px-2 py-0.5 rounded border border-amber-500/20 bg-amber-500/5">
             Proposed Implementation Architecture / Prototype
           </span>
@@ -106,7 +108,7 @@ export default function HowItWorks() {
 
         <div className="mt-4 flex items-start gap-2.5 p-3 rounded-lg bg-amber-500/5 border border-amber-500/15 border-l-2 border-l-amber-500/40">
           <span className="text-[10px] text-slate-400 leading-relaxed">
-            This architecture represents a proposed prototype implementation. Model outputs are probabilistic estimates intended to support analyst decision-making, not guaranteed predictions.
+            This architecture represents a proposed prototype implementation. No trained model is connected. Model outputs are probabilistic estimates intended to support analyst decision-making, not guaranteed predictions.
           </span>
         </div>
       </Panel>

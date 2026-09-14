@@ -1,5 +1,6 @@
 import type { SimState } from '@/types';
 import { riskLevelColor } from '@/simulation';
+import DataStatusBadge from '@/components/DataStatusBadge';
 import { Crosshair } from 'lucide-react';
 
 interface ThreatDetectionProps {
@@ -16,9 +17,12 @@ export default function ThreatDetection({ state }: ThreatDetectionProps) {
         <div className="w-1 h-4 rounded-full" style={{ backgroundColor: severityColor }} />
         <h3 className="text-xs font-bold text-slate-200 tracking-wider">CURRENT ACTIVITY</h3>
         {hasThreat && (
-          <span className="ml-auto flex items-center gap-1 text-[9px] font-mono animate-fade-in" style={{ color: severityColor }}>
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: severityColor }} />
-            DETECTING
+          <span className="ml-auto flex items-center gap-1.5">
+            <span className="flex items-center gap-1 text-[9px] font-mono animate-fade-in" style={{ color: severityColor }}>
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: severityColor }} />
+              DETECTING
+            </span>
+            <DataStatusBadge status="demo" showLabel={false} />
           </span>
         )}
       </div>

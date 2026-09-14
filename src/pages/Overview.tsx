@@ -11,7 +11,7 @@ import AlertPanel from '@/components/AlertPanel';
 import SimControls from '@/components/SimControls';
 import ThreatDetection from '@/components/ThreatDetection';
 import Panel from '@/components/Panel';
-import { Activity, Radio, Target, AlertTriangle, GitBranch, Clock, Bell, Gauge } from 'lucide-react';
+import { Activity, Radio, GitBranch, Clock, Bell, Gauge } from 'lucide-react';
 
 interface OverviewProps {
   state: SimState;
