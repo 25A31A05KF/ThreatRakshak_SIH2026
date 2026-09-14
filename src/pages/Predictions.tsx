@@ -3,7 +3,7 @@ import ThreatForecast from '@/components/ThreatForecast';
 import AttackProgression from '@/components/AttackProgression';
 import Panel from '@/components/Panel';
 import DataStatusBadge from '@/components/DataStatusBadge';
-import { Brain, GitBranch, TrendingUp, Target, Info } from 'lucide-react';
+import { Brain, GitBranch, TrendingUp, Target } from 'lucide-react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine,
   BarChart, Bar, Cell,

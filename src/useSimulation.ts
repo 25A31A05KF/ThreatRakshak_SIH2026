@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { SimPhase, SimState } from './types';
 import {
   applyPhaseToState,
-  generateInitialTraffic,
   generateTrafficEvent,
   makeIdleState,
   SIMULATION_SEQUENCE,
