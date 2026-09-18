@@ -1,4 +1,4 @@
-import { Shield, Activity, Globe, Brain, CheckCircle2, Layers, Info } from 'lucide-react';
+﻿import { Shield, Activity, Globe, Brain, CheckCircle2, Layers, Info } from 'lucide-react';
 
 export type PageId = 'overview' | 'intelligence' | 'network' | 'predictions' | 'validation' | 'how-it-works';
 
@@ -32,7 +32,7 @@ export default function TopNav({ activePage, onNavigate, lastUpdate, onOpenTechS
               Threat<span className="text-cyan glow-text-cyan">Rakshak</span>
             </h1>
             <p className="text-[10px] text-slate-400 tracking-wide mt-0.5">
-              AI-Powered Threat Detection &amp; Forecasting
+              Threat Detection Simulation &amp; AI Forecasting
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function TopNav({ activePage, onNavigate, lastUpdate, onOpenTechS
             title="Technical Status"
           >
             <Info className="w-3.5 h-3.5 text-amber-400/80" />
-            <span className="text-[10px] font-semibold text-amber-400/80 tracking-wide">DEMO MODE</span>
+            <span className="text-[10px] font-semibold text-amber-400/80 tracking-wide">HYBRID MODE</span>
           </button>
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-soc-panel border border-soc-border">
             <span className="relative flex h-2 w-2">
@@ -106,3 +106,4 @@ export default function TopNav({ activePage, onNavigate, lastUpdate, onOpenTechS
     </header>
   );
 }
+

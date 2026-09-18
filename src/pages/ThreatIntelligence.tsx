@@ -6,6 +6,7 @@ import {
 } from '@/mockData';
 import { riskLevelColor } from '@/simulation';
 import Panel from '@/components/Panel';
+import DataStatusBadge from '@/components/DataStatusBadge';
 import {
   PieChart, Pie, Cell, ResponsiveContainer, Tooltip,
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
@@ -93,6 +94,12 @@ export default function ThreatIntelligence() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <Panel title="Recent Threat Events" icon={<Shield className="w-4 h-4" />}>
+          <div className="flex items-center gap-2 mb-3">
+            <DataStatusBadge status="demo" />
+            <span className="text-[10px] text-slate-500">
+              Controlled prototype events - not live network telemetry
+            </span>
+          </div>
           <div className="overflow-auto max-h-[420px]">
             <table className="w-full text-xs">
               <thead className="sticky top-0 bg-soc-panel-2 border-b border-soc-border">
@@ -143,6 +150,12 @@ export default function ThreatIntelligence() {
         </Panel>
 
         <Panel title="Risk Distribution" icon={<PieIcon className="w-4 h-4" />}>
+          <div className="flex items-center gap-2 mb-3">
+            <DataStatusBadge status="demo" />
+            <span className="text-[10px] text-slate-500">
+              Prototype distribution for dashboard demonstration
+            </span>
+          </div>
           <div style={{ height: 280 }}>
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -180,6 +193,12 @@ export default function ThreatIntelligence() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <Panel title="Attack Categories" icon={<Layers className="w-4 h-4" />}>
+          <div className="flex items-center gap-2 mb-3">
+            <DataStatusBadge status="demo" />
+            <span className="text-[10px] text-slate-500">
+              Prototype event distribution
+            </span>
+          </div>
           <div style={{ height: 280 }}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={ATTACK_CATEGORIES} layout="vertical" margin={{ left: 20, right: 20 }}>
@@ -198,6 +217,12 @@ export default function ThreatIntelligence() {
         </Panel>
 
         <Panel title="MITRE ATT&CK Stage Distribution" icon={<Grid3x3 className="w-4 h-4" />}>
+          <div className="flex items-center gap-2 mb-3">
+            <DataStatusBadge status="demo" />
+            <span className="text-[10px] text-slate-500">
+              Prototype stage distribution
+            </span>
+          </div>
           <div style={{ height: 280 }}>
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={MITRE_STAGE_DISTRIBUTION}>

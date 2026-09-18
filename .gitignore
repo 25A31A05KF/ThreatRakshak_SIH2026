@@ -6,18 +6,33 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+node_modules/
+dist/
+dist-ssr/
 *.local
 
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
 .env
+
+# Python / ML environments
+.venv/
+ml.venv/
+__pycache__/
+*.py[cod]
+
+# Large generated ML artifacts
+ml/artifacts/aligned_events.csv
+ml/artifacts/leakage_safe/sequence_metadata.json
+
+# Local backup files
+*.backup
+ml/train_temporal_forecaster_backup.py

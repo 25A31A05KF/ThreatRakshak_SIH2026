@@ -1,5 +1,7 @@
-export type ThreatStatus = 'Normal' | 'Suspicious' | 'Compromised';
+﻿export type ThreatStatus = 'Normal' | 'Suspicious' | 'Compromised';
 export type RiskLevel = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+export type DataMode = 'DEMO' | 'REAL_MODEL_INFERENCE' | 'ERROR_FALLBACK';
+
 export type SimPhase =
   | 'idle'
   | 'normal'
@@ -67,9 +69,19 @@ export interface ForecastData {
   explanation: string;
 }
 
+export interface RealModelResult {
+  predictedNextState: string;
+  confidence: number;
+  probabilities: Record<string, number>;
+  mitreInterpretation: string[];
+}
+
 export interface SimState {
   phase: SimPhase;
   running: boolean;
+  dataMode: DataMode;
+  modelResult: RealModelResult | null;
+  modelInputSequence: string[];
   riskScore: number;
   riskLevel: RiskLevel;
   activeThreats: number;
@@ -111,3 +123,4 @@ export interface CategoryData {
   count: number;
   color: string;
 }
+

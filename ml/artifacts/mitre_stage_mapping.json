@@ -1,0 +1,42 @@
+{
+  "project": "ThreatRakshak",
+  "dataset": "UNSW-NB15",
+  "purpose": "Documented mapping from UNSW-NB15 attack categories to MITRE ATT&CK tactical stages for forecasting",
+  "mapping": {
+    "analysis": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "backdoor": [
+      "Persistence",
+      "Command and Control"
+    ],
+    "dos": [
+      "Impact"
+    ],
+    "exploits": [
+      "Initial Access",
+      "Execution",
+      "Privilege Escalation"
+    ],
+    "fuzzers": [
+      "Discovery",
+      "Initial Access"
+    ],
+    "generic": [
+      "Execution",
+      "Command and Control"
+    ],
+    "reconnaissance": [
+      "Reconnaissance"
+    ],
+    "shellcode": [
+      "Execution"
+    ],
+    "worms": [
+      "Execution",
+      "Lateral Movement"
+    ]
+  },
+  "note": "This is a category-to-tactic interpretation layer, not a direct MITRE ATT&CK ground-truth label. Category-level mappings may correspond to multiple tactics depending on the underlying technique."
+}

@@ -1,0 +1,40 @@
+{
+  "seed": 42,
+  "sequence_length": 8,
+  "num_states": 9,
+  "embedding_dim": 16,
+  "hidden_dim": 32,
+  "num_layers": 1,
+  "dropout": 0.0,
+  "batch_size": 128,
+  "epochs": 30,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "patience": 7,
+  "device": "cpu",
+  "state_names": [
+    "analysis",
+    "backdoor",
+    "dos",
+    "exploits",
+    "fuzzers",
+    "generic",
+    "reconnaissance",
+    "shellcode",
+    "worms"
+  ],
+  "state_to_id": {
+    "analysis": 0,
+    "backdoor": 1,
+    "dos": 2,
+    "exploits": 3,
+    "fuzzers": 4,
+    "generic": 5,
+    "reconnaissance": 6,
+    "shellcode": 7,
+    "worms": 8
+  },
+  "train_artifact": "D:\\Projects\\ThreatRakshak_SIH2026\\ml\\artifacts\\progression\\train_progression.npz",
+  "validation_artifact": "D:\\Projects\\ThreatRakshak_SIH2026\\ml\\artifacts\\progression\\validation_progression.npz",
+  "test_artifact": "D:\\Projects\\ThreatRakshak_SIH2026\\ml\\artifacts\\progression\\test_progression.npz"
+}

@@ -1,4 +1,4 @@
-import type {
+﻿import type {
   AttackStage,
   ForecastData,
   NetworkLink,
@@ -109,6 +109,9 @@ export function makeIdleState(): SimState {
   return {
     phase: 'idle',
     running: false,
+    dataMode: 'DEMO',
+    modelResult: null,
+    modelInputSequence: [],
     riskScore: 18,
     riskLevel: 'LOW',
     activeThreats: 0,
@@ -122,7 +125,7 @@ export function makeIdleState(): SimState {
     stages: makeStages(-1),
     traffic: generateInitialTraffic(),
     timeline: [
-      { id: 't-init-1', timestamp: nowTime(), message: 'System initialized — monitoring active', severity: 'info' },
+      { id: 't-init-1', timestamp: nowTime(), message: 'System initialized â€” monitoring active', severity: 'info' },
     ],
     alerts: [],
     forecast: {
@@ -190,7 +193,7 @@ export function getPhaseConfig(phase: SimPhase): PhaseConfig {
         trafficRisk: 'LOW',
         nodeStatuses: {},
         linkStatuses: {},
-        timelineMessage: 'Normal network activity — all systems nominal',
+        timelineMessage: 'Normal network activity â€” all systems nominal',
         timelineSeverity: 'info',
       };
 
@@ -253,7 +256,7 @@ export function getPhaseConfig(phase: SimPhase): PhaseConfig {
         trafficRisk: 'HIGH',
         nodeStatuses: { internet: 'Suspicious', gateway: 'Suspicious', web: 'Suspicious' },
         linkStatuses: { 'gateway-internet': 'Suspicious', 'gateway-web': 'Suspicious' },
-        timelineMessage: 'Reconnaissance identified — port scanning activity confirmed',
+        timelineMessage: 'Reconnaissance identified â€” port scanning activity confirmed',
         timelineSeverity: 'warning',
         alert: {
           severity: 'HIGH',
@@ -288,7 +291,7 @@ export function getPhaseConfig(phase: SimPhase): PhaseConfig {
         trafficRisk: 'HIGH',
         nodeStatuses: { internet: 'Suspicious', gateway: 'Suspicious', web: 'Suspicious', app: 'Suspicious' },
         linkStatuses: { 'gateway-internet': 'Suspicious', 'gateway-web': 'Suspicious', 'gateway-app': 'Suspicious' },
-        timelineMessage: 'Risk score elevated — scan patterns expanding to additional services',
+        timelineMessage: 'Risk score elevated â€” scan patterns expanding to additional services',
         timelineSeverity: 'warning',
         alert: {
           severity: 'HIGH',
@@ -307,7 +310,7 @@ export function getPhaseConfig(phase: SimPhase): PhaseConfig {
         predictedThreats: 4,
         networkHealth: 55,
         stageIndex: 1,
-        detectedThreat: 'Confirmed Intrusion — Initial Access Achieved',
+        detectedThreat: 'Confirmed Intrusion â€” Initial Access Achieved',
         threatCategory: 'Initial Access',
         threatSeverity: 'CRITICAL',
         threatConfidence: 79,
@@ -323,7 +326,7 @@ export function getPhaseConfig(phase: SimPhase): PhaseConfig {
         trafficRisk: 'CRITICAL',
         nodeStatuses: { internet: 'Compromised', gateway: 'Suspicious', web: 'Compromised', app: 'Suspicious', db: 'Suspicious' },
         linkStatuses: { 'gateway-internet': 'Compromised', 'gateway-web': 'Compromised', 'web-app': 'Suspicious', 'app-db': 'Suspicious' },
-        timelineMessage: 'HIGH RISK ALERT — Initial Access confirmed, Execution predicted as next stage',
+        timelineMessage: 'HIGH RISK ALERT â€” Initial Access confirmed, Execution predicted as next stage',
         timelineSeverity: 'critical',
         alert: {
           severity: 'CRITICAL',
@@ -424,3 +427,5 @@ export function statusColor(status: ThreatStatus): string {
     default: return '#64748b';
   }
 }
+
+

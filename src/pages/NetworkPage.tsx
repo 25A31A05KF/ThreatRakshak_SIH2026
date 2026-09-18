@@ -69,6 +69,9 @@ export default function NetworkPage({ state }: NetworkPageProps) {
       </div>
 
       <Panel title="Traffic Volume History" icon={<Activity className="w-4 h-4" />}>
+        <p className="text-[9px] text-slate-500 uppercase tracking-widest mb-2">
+          Prototype traffic history ? not live network telemetry
+        </p>
         <div style={{ height: 240 }}>
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={NETWORK_TRAFFIC_HISTORY} margin={{ left: -10, right: 10, top: 10 }}>
@@ -93,7 +96,7 @@ export default function NetworkPage({ state }: NetworkPageProps) {
         </div>
       </Panel>
 
-      <Panel title="Live Network Traffic" icon={<Activity className="w-4 h-4" />}>
+      <Panel title="Simulated Network Telemetry" icon={<Activity className="w-4 h-4" />}>
         <TrafficTable traffic={state.traffic} maxRows={15} />
       </Panel>
     </div>

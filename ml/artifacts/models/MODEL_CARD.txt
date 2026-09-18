@@ -1,0 +1,44 @@
+THREATRAKSHAK TEMPORAL NEXT-STATE FORECASTER
+============================================================
+
+Purpose
+-------
+Forecast the next observed UNSW-NB15 attack-category state from a short ordered history of previous states.
+
+Important terminology
+---------------------
+The nine UNSW-NB15 attack categories are used as network-state labels for this experiment.
+They are NOT automatically treated as MITRE ATT&CK stages.
+
+Model
+-----
+Embedding -> LSTM -> Linear classifier
+Sequence length: 8
+Best epoch: 30
+Seed: 42
+
+Data handling
+-------------
+Chronological train/validation/test progression artifacts were used.
+No random shuffling was performed.
+Original datasets were not modified.
+Progression artifacts were not modified.
+
+Validation results
+------------------
+Accuracy: 0.944062
+Balanced Accuracy: 0.408969
+Macro F1: 0.805864
+
+Test results
+------------
+Accuracy: 0.936053
+Balanced Accuracy: 0.336703
+Macro F1: 0.751773
+Weighted F1: 0.929389
+Top-3 Accuracy: 0.985560
+
+Interpretation warning
+----------------------
+These results measure next-state forecasting within the prepared UNSW-NB15 progression representation.
+They should not be described as proof of real-world attack prediction without additional validation.

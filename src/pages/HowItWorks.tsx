@@ -20,14 +20,14 @@ import Panel from '@/components/Panel';
 import DataStatusBadge from '@/components/DataStatusBadge';
 
 const FLOW_STAGES = [
-  { name: 'Network Telemetry', icon: Network, description: 'Raw packet and flow data is collected from network sensors in real time.' },
+  { name: 'Network Telemetry', icon: Network, description: 'Controlled simulated network telemetry is generated for the current prototype; live packet capture is planned for production integration.' },
   { name: 'Feature Extraction', icon: Filter, description: 'Traffic is parsed into structured features such as byte counts, durations, and port patterns.' },
-  { name: 'Threat Detection', icon: ScanSearch, description: 'A classification model flags individual events that match known suspicious patterns.' },
+  { name: 'Threat Detection', icon: ScanSearch, description: 'The current prototype encodes observed telemetry into the 9 UNSW-NB15 attack-category states used by the trained forecaster.' },
   { name: 'Behavioral Sequence Analysis', icon: GitCompareArrows, description: 'Detected events are ordered into behavioral sequences to reveal attack progression patterns.' },
-  { name: 'Threat Forecasting', icon: TrendingUp, description: 'A temporal model estimates the most likely next attack stage from the observed sequence.' },
-  { name: 'MITRE ATT&CK Mapping', icon: Map, description: 'Each detected and predicted stage is mapped to the corresponding MITRE ATT&CK tactic.' },
-  { name: 'Risk Scoring', icon: Gauge, description: 'A composite risk score is calculated from threat severity, confidence, and network health.' },
-  { name: 'Real-Time Alert', icon: BellRing, description: 'When risk exceeds a threshold, an alert with context and recommended action is raised.' },
+  { name: 'Threat Forecasting', icon: TrendingUp, description: 'The trained PyTorch Embedding + LSTM + Linear model predicts the next observed UNSW-NB15 attack-category state.' },
+  { name: 'MITRE ATT&CK Mapping', icon: Map, description: 'Predicted and observed states are interpreted through the project MITRE ATT&CK mapping layer.' },
+  { name: 'Risk Scoring', icon: Gauge, description: 'The dashboard combines forecast confidence, threat severity, and network-health indicators into its risk presentation.' },
+  { name: 'Real-Time Alert', icon: BellRing, description: 'When configured risk conditions are reached, the dashboard presents an alert with context and recommended analyst action.' },
   { name: 'SOC Dashboard', icon: LayoutDashboard, description: 'Analysts see the full picture — topology, forecast, alerts, and reasoning — in one view.' },
 ];
 
@@ -108,7 +108,7 @@ export default function HowItWorks() {
 
         <div className="mt-4 flex items-start gap-2.5 p-3 rounded-lg bg-amber-500/5 border border-amber-500/15 border-l-2 border-l-amber-500/40">
           <span className="text-[10px] text-slate-400 leading-relaxed">
-            This architecture represents a proposed prototype implementation. No trained model is connected. Model outputs are probabilistic estimates intended to support analyst decision-making, not guaranteed predictions.
+            This prototype currently uses controlled simulated telemetry and a connected trained PyTorch Temporal Forecaster through the local Flask inference API. Live network packet capture is not connected. Forecast outputs are probabilistic estimates intended to support analyst decision-making, not guaranteed predictions.
           </span>
         </div>
       </Panel>

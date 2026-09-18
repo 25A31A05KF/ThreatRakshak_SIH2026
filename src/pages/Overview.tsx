@@ -36,6 +36,7 @@ export default function Overview({ state, running, onStart, onPause, onReset }: 
           <div className="mt-3 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: riskColor }} />
             <span className="text-xs font-mono text-slate-400">
+              <span className="text-cyan-400/70">SIMULATED RISK CONTEXT ? </span>
               {state.riskLevel === 'LOW' ? 'All systems nominal' : `${state.riskLevel} risk threshold exceeded`}
             </span>
           </div>
@@ -47,7 +48,7 @@ export default function Overview({ state, running, onStart, onPause, onReset }: 
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <Panel title="Live Network Traffic" icon={<Activity className="w-4 h-4" />}>
+        <Panel title="Simulated Network Telemetry" icon={<Activity className="w-4 h-4" />}>
           <TrafficTable traffic={state.traffic} maxRows={10} />
         </Panel>
 
@@ -58,7 +59,12 @@ export default function Overview({ state, running, onStart, onPause, onReset }: 
         <AttackProgression stages={state.stages} />
       </Panel>
 
-      <ThreatForecast forecast={state.forecast} />
+      <ThreatForecast
+        forecast={state.forecast}
+        modelResult={state.modelResult}
+        dataMode={state.dataMode}
+        modelInputSequence={state.modelInputSequence}
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <Panel title="Threat Timeline" icon={<Clock className="w-4 h-4" />}>
